@@ -1,0 +1,95 @@
+.tictactoe__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 80px;
+  background-color: #111;
+}
+
+.tictactoe__title {
+  color: #fff;
+  font-size: 3rem;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+.board__title {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.board__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  height: 600px;
+  margin-bottom: 24px;
+}
+
+.board__square {
+  border: 1px solid #444;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 5px #fff;
+}
+
+.board__square:hover {
+  background-color: #333;
+  box-shadow: 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+  transform: scale(1.01);
+}
+
+.border-top {
+  border-left: 1px solid #444;
+  border-right: 1px solid #444;
+}
+
+.border-right {
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.border-bottom {
+  border-left: 1px solid #444;
+  border-right: 1px solid #444;
+}
+
+.border-left {
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.border-middle {
+  border: 1px solid #444;
+}
+
+.board__restart {
+    padding: 10px 20px;
+    background-color: #111;
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .board__restart:hover {
+    background-color: #333;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
