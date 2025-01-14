@@ -1,27 +1,26 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-const GamePieces = ({score, setScore, onGameOver}) => {
+const GamePieces = ({ setScore, onGameOver }) => {
   const canvasRef = useRef();
-  const SNAKE_SPEED = 10;
-  const [apple, setApple] = useState({ x: 100, y: 100 });
-  const [snake, setSnake] = useState([
+  const snakeRef = useRef([
     { x: 100, y: 50 },
     { x: 95, y: 50 },
   ]);
+  const appleRef = useRef({ x: 100, y: 100 });
+  const directionRef = useRef(null);
+  const prevDirection = useRef(null);
 
-  const [direction, setDirection] = useState(null);
+  const SNAKE_SPEED = 10;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    
-
     const drawSnake = () => {
-      snake.forEach((snakePark) => {
+      snakeRef.current.forEach((snakePart) => {
         ctx.beginPath();
-        ctx.rect(snakePark.x, snakePark.y, 10, 10);
-        ctx.fillStyle = "#90EE90";
+        ctx.rect(snakePart.x, snakePart.y, 10, 10);
+        ctx.fillStyle = "#306850";
         ctx.fill();
         ctx.closePath();
       });
@@ -29,98 +28,101 @@ const GamePieces = ({score, setScore, onGameOver}) => {
 
     const drawApple = () => {
       ctx.beginPath();
-      ctx.rect(apple.x, apple.y, 10, 10);
+      ctx.rect(appleRef.current.x, appleRef.current.y, 10, 10);
       ctx.fillStyle = "#FF0000";
       ctx.fill();
       ctx.closePath();
     };
 
     const drawBackground = (canvas, ctx) => {
-        const squareSize = 20;  
-        const colors = ['#D0F0C0', '#E0F8E0 '];  
-      
-        for (let y = 0; y < canvas.height; y += squareSize) {
-          for (let x = 0; x < canvas.width; x += squareSize) {
-            ctx.beginPath();
-            ctx.rect(x, y, squareSize, squareSize);
-            
-            ctx.fillStyle = (x / squareSize + y / squareSize) % 2 === 0 ? colors[0] : colors[1];
-            ctx.fill();
-            ctx.closePath();
-          }
+      const squareSize = 20;
+      const colors = ["#D0F0C0", "#e0f8cf"];
+
+      for (let y = 0; y < canvas.height; y += squareSize) {
+        for (let x = 0; x < canvas.width; x += squareSize) {
+          ctx.beginPath();
+          ctx.rect(x, y, squareSize, squareSize);
+          ctx.fillStyle =
+            (x / squareSize + y / squareSize) % 2 === 0 ? colors[0] : colors[1];
+          ctx.fill();
+          ctx.closePath();
         }
-      };
+      }
+    };
 
     const moveSnake = () => {
-      if (direction) {
-        setSnake((prevSnake) => {
-          const newSnake = [...prevSnake];
-          const snakeHead = { x: newSnake[0].x, y: newSnake[0].y };
+      if (directionRef.current) {
+        const newSnake = [...snakeRef.current];
+        const snakeHead = { x: newSnake[0].x, y: newSnake[0].y };
 
-          for (let i = newSnake.length - 1; i > 0; i--) {
-            newSnake[i].x = newSnake[i - 1].x;
-            newSnake[i].y = newSnake[i - 1].y;
-          }
+        handleWallCollision(snakeHead);
 
-          switch (direction) {
-            case "right":
-              snakeHead.x += SNAKE_SPEED;
-              break;
-            case "left":
-              snakeHead.x -= SNAKE_SPEED;
-              break;
-            case "up":
-              snakeHead.y -= SNAKE_SPEED;
-              break;
-            case "down":
-              snakeHead.y += SNAKE_SPEED;
-              break;
-            default:
-              break;
-          }
+        for (let i = newSnake.length - 1; i > 0; i--) {
+          newSnake[i].x = newSnake[i - 1].x;
+          newSnake[i].y = newSnake[i - 1].y;
+        }
 
-          newSnake[0] = snakeHead;
-          handleAppleCollision(newSnake);
-          handleWallCollision(snakeHead);
-          handleBodyCollision(newSnake);
+        if (directionRef.current === "right") {
+          snakeHead.x += SNAKE_SPEED;
+          prevDirection.current = "right";
+        } else if (directionRef.current === "left") {
+          snakeHead.x -= SNAKE_SPEED;
+          prevDirection.current = "left";
+        } else if (directionRef.current === "up") {
+          snakeHead.y -= SNAKE_SPEED;
+          prevDirection.current = "up";
+        } else if (directionRef.current === "down") {
+          snakeHead.y += SNAKE_SPEED;
+          prevDirection.current = "down";
+        }
 
-          return newSnake;
-        });
+        newSnake[0] = snakeHead;
+        handleAppleCollision(newSnake);
+        handleBodyCollision(newSnake);
+
+        snakeRef.current = newSnake;
       }
     };
 
     const handleBodyCollision = (newSnake) => {
-        const snakeHead = newSnake[0];
+      const snakeHead = newSnake[0];
 
-        for (let i = 1; i < newSnake.length; i++) {
-            if(snakeHead.x === newSnake[i].x && snakeHead.y === newSnake[i].y)
-            onGameOver("self")
-        }
-    }
+      for (let i = 1; i < newSnake.length; i++) {
+        if (snakeHead.x === newSnake[i].x && snakeHead.y === newSnake[i].y)
+          onGameOver("self");
+      }
+    };
 
     const handleWallCollision = (snakeHead) => {
-        if(snakeHead.x + SNAKE_SPEED > canvas.width || snakeHead.x + SNAKE_SPEED < 0) {
-            onGameOver("wall")
-        }
-        if(snakeHead.y + SNAKE_SPEED > canvas.height || snakeHead.y + SNAKE_SPEED < 0) {
-            onGameOver("wall")
-        }
-    }
+      if (
+        snakeHead.x + SNAKE_SPEED > canvas.width ||
+        snakeHead.x + SNAKE_SPEED < 0
+      )
+        onGameOver("wall");
+      if (
+        snakeHead.y + SNAKE_SPEED > canvas.height ||
+        snakeHead.y + SNAKE_SPEED < 0
+      )
+        onGameOver("wall");
+    };
 
     const handleAppleCollision = (newSnake) => {
       const snakeHead = newSnake[0];
 
-      if (snakeHead.x === apple.x && snakeHead.y === apple.y) {
-        setScore(++score);
+      if (
+        snakeHead.x === appleRef.current.x &&
+        snakeHead.y === appleRef.current.y
+      ) {
+        setScore((prevScore) => prevScore + 1);
 
-        setApple({
+        appleRef.current = {
           x:
             Math.floor((Math.random() * canvas.width) / SNAKE_SPEED) *
             SNAKE_SPEED,
           y:
             Math.floor((Math.random() * canvas.height) / SNAKE_SPEED) *
             SNAKE_SPEED,
-        });
+        };
 
         newSnake.push({
           x: newSnake[newSnake.length - 1].x,
@@ -132,16 +134,24 @@ const GamePieces = ({score, setScore, onGameOver}) => {
     const handleKeyPress = (e) => {
       switch (e.key) {
         case "ArrowRight":
-          setDirection("right");
+          if (prevDirection.current !== "left") {
+            directionRef.current = "right";
+          }
           break;
         case "ArrowLeft":
-          setDirection("left");
+          if (prevDirection.current !== "right") {
+            directionRef.current = "left";
+          }
           break;
         case "ArrowUp":
-          setDirection("up");
+          if (prevDirection.current !== "down") {
+            directionRef.current = "up";
+          }
           break;
         case "ArrowDown":
-          setDirection("down");
+          if (prevDirection.current !== "up") {
+            directionRef.current = "down";
+          }
           break;
         default:
           break;
@@ -160,14 +170,13 @@ const GamePieces = ({score, setScore, onGameOver}) => {
 
     return () => {
       clearInterval(interval);
+      window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [snake, direction]);
+  }, []);
 
   return (
-    <div>
-      <canvas className="gameCanvas" ref={canvasRef} width={750} height={420} />
-    </div>
+    <canvas className="gameCanvas" ref={canvasRef} width={650} height={420} />
   );
-}
+};
 
 export default GamePieces;

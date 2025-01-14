@@ -7,13 +7,11 @@ import Matching from "./pages/Matching";
 import Snake from "./pages/Snake";
 import TicTacToe from "./pages/TicTacToe";
 import Wordle from "./pages/Wordle";
-import Header from "./components/Header";
 
 function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hangman" element={<Hangman />} />

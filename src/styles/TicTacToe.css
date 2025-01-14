@@ -1,10 +1,16 @@
+.tictactoe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  height: 88vh;
+}
+
 .tictactoe__wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 80px;
-  background-color: #111;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .tictactoe__title {
@@ -19,16 +25,35 @@
   color: #fff;
   font-size: 2rem;
   text-align: center;
-  margin: 1rem;
+  margin: 16px;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
 }
 
 .board__wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
-  height: 600px;
+  width: 450px;
+  height: 450px;
   margin-bottom: 24px;
+}
+
+.tictactoe__rules-title {
+  color: #fff;
+  font-size: 28px;
+  padding-top: 40px;
+}
+
+.tictactoe__rules-wrapper{
+  max-width: 560px;
+  padding-top: 8px;
+  padding-bottom: 40px;
+}
+
+.tictactoe__rule-item {
+  color: #fff;
+  list-style: decimal;
+  padding: 4px 0;
+  font-size: 18px;
 }
 
 .board__square {
@@ -37,8 +62,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   background-color: #222;
   color: #fff;
@@ -90,6 +115,6 @@
   
   .board__restart:hover {
     background-color: #333;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #00ffff, 0 0 15px #00ffff;
   }
