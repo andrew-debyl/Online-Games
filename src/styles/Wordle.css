@@ -1,0 +1,174 @@
+.wordle {
+  background-color: #121212;
+}
+
+.wordle__nav {
+  height: 6vh;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid grey;
+  display: grid;
+  place-items: center;
+}
+
+.wordle__title {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 45px;
+}
+
+.wordle__game {
+  width: 100vw;
+  height: 82vh;
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+}
+
+.wordle__board {
+  width: 450px;
+  height: 550px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.wordle__row {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.wordle__letter {
+  flex: 33%;
+  height: 100%;
+  border: 1px solid grey;
+  margin: 5px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wordle__correct {
+  background-color: #528d4e;
+}
+
+#wordle__almost {
+  background-color: #b49f39;
+}
+
+#wordle__error {
+  background-color: #3a393c;
+}
+
+.wordle__keyboard {
+  width: 700px;
+  height: 300px;
+  margin-top: 60px;
+}
+
+.wordle__line1 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.wordle__line2 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+.wordle__line3 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+
+.wordle__key {
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background-color: grey;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+#wordle__big {
+  width: 100px;
+}
+#wordle__disabled {
+  background-color: #3a393c;
+}
+
+.wordle__gameOver {
+  color: white;
+}
+
+
+
+
+/* App.css */
+
+/* To create a semi-transparent overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+/* Styling for the popup box */
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Fixed width for the popup */
+}
+
+.popup h2 {
+  margin-bottom: 15px;
+}
+
+.popup p {
+  margin-bottom: 20px;
+}
+
+/* Play Again button styling */
+.play-again-btn {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.play-again-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
