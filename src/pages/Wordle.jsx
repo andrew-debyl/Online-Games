@@ -40,6 +40,10 @@ function Wordle() {
     fetchWord();
   }, [reset]);
 
+  useEffect(() => {
+    resetGame();
+  }, []);
+
   //Functions for deleting, entering, or adding letters
   const onSelectLetter = (keyVal) => {
     if (currAttempt.letterPos > 4) {
@@ -106,8 +110,6 @@ function Wordle() {
     setGameOver({ gameOver: false, guessedWord: false });
     setDisabledLetters([]);
   };
-
-  console.log(correctWord)
 
   return (
     <>
