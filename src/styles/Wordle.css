@@ -234,3 +234,27 @@
     padding-top: 10px;
   }
 }
+
+.wordle__loader-wrapper {
+  width: 100vw;
+  height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordle__loader {
+  border: 12px solid; 
+  border-top: 12px solid #528d4e; 
+  border-right: 12px solid #528d4e; 
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

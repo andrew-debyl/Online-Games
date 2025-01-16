@@ -19,11 +19,11 @@ function Wordle() {
     gameOver: false,
     guessedWord: false,
   });
-  const [reset, setReset] = useState(false)
+  const [reset, setReset] = useState(false);
 
   //Getting data from API
   async function fetchWord() {
-    setReset(false)
+    setReset(false);
     const word = await axios.get(
       "https://random-word-api.herokuapp.com/word?length=5"
     );
@@ -82,7 +82,7 @@ function Wordle() {
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
     } else {
       alert("Not a valid Wordle word");
-      return
+      return;
     }
 
     //Seeing if they won
@@ -97,7 +97,7 @@ function Wordle() {
   };
 
   const resetGame = () => {
-    setReset(true)
+    setReset(true);
     setBoard([
       ["", "", "", "", ""],
       ["", "", "", "", ""],
@@ -118,29 +118,35 @@ function Wordle() {
         <div className="wordle__nav">
           <h1 className="wordle__title">Wordle Extreme</h1>
         </div>
-        <AppContext.Provider
-          value={{
-            board,
-            setBoard,
-            currAttempt,
-            setCurrAttempt,
-            onSelectLetter,
-            onDelete,
-            onEnter,
-            setDisabledLetters,
-            disabledLetters,
-            gameOver,
-            setGameOver,
-            correctWord,
-            resetGame,
-          }}
-        >
-          <div className="wordle__game">
-            <Board />
-            <Keyboard />
-            {gameOver.gameOver && <GameOver />}
+        {correctWord && allWords ? (
+          <AppContext.Provider
+            value={{
+              board,
+              setBoard,
+              currAttempt,
+              setCurrAttempt,
+              onSelectLetter,
+              onDelete,
+              onEnter,
+              setDisabledLetters,
+              disabledLetters,
+              gameOver,
+              setGameOver,
+              correctWord,
+              resetGame,
+            }}
+          >
+            <div className="wordle__game">
+              <Board />
+              <Keyboard />
+              {gameOver.gameOver && <GameOver />}
+            </div>
+          </AppContext.Provider>
+        ) : (
+          <div className="wordle__loader-wrapper">
+            <div className="wordle__loader"></div>
           </div>
-        </AppContext.Provider>
+        )}
       </div>
     </>
   );

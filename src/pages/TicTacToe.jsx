@@ -81,36 +81,18 @@ function TicTacToe() {
       <div className="tictactoe">
         <div className="tictactoe__wrapper">
           <div>
-            <div>
-              <h1 className="tictactoe__title">TicTacToe</h1>
-            </div>
-            <div>
-              <h2 className="tictactoe__rules-title">Rules:</h2>
-              <ul className="tictactoe__rules-wrapper">
-                <li className="tictactoe__rule-item">
-                  The game is played on a grid that's 3 squares by 3 squares
-                </li>
-                <li className="tictactoe__rule-item">
-                  One player is X and the other is O. Players take turns putting
-                  their marks in empty squares.
-                </li>
-                <li className="tictactoe__rule-item">
-                  The first player to get 3 of his/her marks in a row (up, down,
-                  across, or diagonally) is the winner.
-                </li>
-                <li className="tictactoe__rule-item">
-                  When all 9 squares are full, the game is over. If no player
-                  has 3 marks in a row, the game ends in a tie.
-                </li>
-                <li className="tictactoe__rule-item">Press the Restart button to play again!</li>
-              </ul>
-            </div>
-            <button className="board__restart" onClick={() => handleRestart()}>
-              Restart
-            </button>
+            <h1 className="tictactoe__title">TicTacToe</h1>
           </div>
-          <div>
-            <h2 className="board__title">{title}</h2>
+          <div className="tictactoe__game-wrapper">
+            <div className="tictactoe__heading-wrapper">
+              <h2 className="board__title">{title}</h2>
+              <button
+                className="board__restart"
+                onClick={() => handleRestart()}
+              >
+                Restart
+              </button>
+            </div>
             <div className="board__wrapper">
               <button className="board__square" onClick={() => handleClick(0)}>
                 {board[0]}
