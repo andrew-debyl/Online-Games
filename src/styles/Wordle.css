@@ -155,7 +155,6 @@
   background-color: #45a049;
 }
 
-/* Media Query for Tablet (up to 1024px width) */
 @media (max-width: 1024px) {
   .wordle__title {
     font-size: 40px;
@@ -174,7 +173,6 @@
   }
 }
 
-/* Media Query for Mobile (up to 700px width) */
 @media (max-width: 700px) {
   .wordle__title {
     font-size: 30px;
@@ -193,7 +191,7 @@
   }
 
   .wordle__letter {
-    font-size: 24px; /* Adjust letter size on small screens */
+    font-size: 24px; 
   }
 
   .wordle__game {
@@ -201,11 +199,10 @@
   }
 
   .wordle__row {
-    flex: 25%; /* Adjust row flex for smaller screens */
+    flex: 25%; 
   }
 }
 
-/* Media Query for Small Mobile (up to 500px width) */
 @media (max-width: 500px) {
   .wordle__title {
     font-size: 24px;
@@ -225,10 +222,11 @@
     width: 40px;
     height: 45px;
     font-size: 14px;
+    margin: 2px;
   }
 
   .wordle__letter {
-    font-size: 18px; /* Further reduce letter size on very small screens */
+    font-size: 18px; 
   }
 
   .wordle__game {
