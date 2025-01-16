@@ -212,12 +212,13 @@
   }
 
   .wordle__board {
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 350px;
   }
 
   .wordle__keyboard {
     width: 360px;
+    margin-top: 10px;
   }
 
   .wordle__key {
