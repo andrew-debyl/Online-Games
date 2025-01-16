@@ -114,7 +114,7 @@ function Wordle() {
       <Header pageName={"wordle"} />
       <div className="wordle">
         <div className="wordle__nav">
-          <h1 className="wordle__title">Wordle</h1>
+          <h1 className="wordle__title">Wordle Extreme</h1>
         </div>
         <AppContext.Provider
           value={{

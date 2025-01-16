@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/Header";
 
 function Hangman() {
   return (
-    <div>Hangman</div>
-  )
+    <>
+      <Header />
+      <div>Hangman</div>
+    </>
+  );
 }
 
-export default Hangman
+export default Hangman;

@@ -121,33 +121,26 @@
   color: white;
 }
 
-
-
-
-/* App.css */
-
-/* To create a semi-transparent overlay */
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensure it's on top of other elements */
+  z-index: 1000; 
 }
 
-/* Styling for the popup box */
 .popup {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px; /* Fixed width for the popup */
+  width: 300px; 
 }
 
 .popup h2 {
@@ -158,9 +151,8 @@
   margin-bottom: 20px;
 }
 
-/* Play Again button styling */
 .play-again-btn {
-  background-color: #4CAF50; /* Green color */
+  background-color: #4CAF50; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -170,5 +162,25 @@
 }
 
 .play-again-btn:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049;
+}
+
+@media (max-width: 699px) {
+  .wordle__keyboard {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 499px) {
+  .wordle__title { 
+    font-size: 30px;
+  }
+
+  .wordle__board {
+    width: 350px;
+  }  
+
+  .wordle__keyboard {
+    width: 400px;
+  }
 }

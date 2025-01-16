@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Header'
 
 function Matching() {
   return (
-    <div>Matching</div>
+    <>
+      <Header />
+      <div>matching</div>
+    </>
   )
 }
 

@@ -1,177 +1,253 @@
+/* General */
+
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.menu-icon-2 {
+    display: none;
+}
+
+.menu-icon-2-open{
+    display: block;
+    color: #fff;
+    z-index: 5;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    padding: 8px;
+    top: 0;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #333;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+    color: #fff;
+  }
+
+  .nav ul {
+    flex-direction: column;
+  }
+
+  .nav ul li {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav ul li a {
+    display: block;
+    padding: 10px 0;
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+    .nav {
+      transition: transform 0.3s ease-in-out;
+      transform: translateY(-100%);
+    }
+  
+    .nav.open {
+      transform: translateY(0);
+    }
+  }
+
+
 /* TicTacToe */
 
 .header-tictactoe {
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
 }
 
 .header-wrapper-tictactoe {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
-    height: 100px;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  height: 100px;
+  padding: 0 20px;
 }
 
-.header-logo-tictactoe{
-    width: 60px;
-    filter: invert();
+.header-logo-tictactoe {
+  width: 60px;
+  filter: invert();
 }
 
 .header-links-tictactoe {
-    display: flex;
-    list-style-type: none;
-    transition: all 300ms ease;
+  display: flex;
+  list-style-type: none;
+  transition: all 300ms ease;
 }
 
 .header-link-tictactoe {
-    margin: 0 14px;
+  margin: 0 14px;
 }
 
 .link__hover-effect-tictactoe {
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .link__hover-effect-tictactoe:after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    height: 2px;
-    width: 0;
-    right: 0;
-    transition: all 500ms ease;
-    background-color: #fff;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  right: 0;
+  transition: all 500ms ease;
+  background-color: #fff;
 }
 
 .link__hover-effect-tictactoe:hover:after {
-    left: 0;
-    width: 100%;
+  left: 0;
+  width: 100%;
 }
-
 
 /* Snake */
 
 .header-snake {
-    background-color: #f1f8e9 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
+  background-color: #f1f8e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
 }
 
 .header-wrapper-snake {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
-    height: 100px;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  height: 100px;
+  padding: 0 20px;
 }
 
-.header-logo-snake{
-    width: 60px;
+.header-logo-snake {
+  width: 60px;
 }
 
 .header-links-snake {
-    display: flex;
-    list-style-type: none;
-    transition: all 300ms ease;
+  display: flex;
+  list-style-type: none;
+  transition: all 300ms ease;
 }
 
 .header-link-snake {
-    margin: 0 14px;
+  margin: 0 14px;
 }
 
 .link__hover-effect-snake {
-    position: relative;
-    color: #111;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
+  position: relative;
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .link__hover-effect-snake:after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    height: 2px;
-    width: 0;
-    right: 0;
-    transition: all 500ms ease;
-    background-color: #111;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  right: 0;
+  transition: all 500ms ease;
+  background-color: #111;
 }
 
 .link__hover-effect-snake:hover:after {
-    left: 0;
-    width: 100%;
+  left: 0;
+  width: 100%;
 }
-
 
 /* Wordle */
 
 .header-wordle {
-    background-color: #121212;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
 }
 
 .header-wrapper-wordle {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
-    height: 100px;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  height: 100px;
+  padding: 0 20px;
 }
 
-.header-logo-wordle{
-    width: 60px;
-    filter: invert();
+.header-logo-wordle {
+  width: 60px;
+  filter: invert();
 }
 
 .header-links-wordle {
-    display: flex;
-    list-style-type: none;
-    transition: all 300ms ease;
+  display: flex;
+  list-style-type: none;
+  transition: all 300ms ease;
 }
 
 .header-link-wordle {
-    margin: 0 14px;
+  margin: 0 14px;
 }
 
 .link__hover-effect-wordle {
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 .link__hover-effect-wordle:after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    height: 2px;
-    width: 0;
-    right: 0;
-    transition: all 500ms ease;
-    background-color: #fff;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  right: 0;
+  transition: all 500ms ease;
+  background-color: #fff;
 }
 
 .link__hover-effect-wordle:hover:after {
-    left: 0;
-    width: 100%;
+  left: 0;
+  width: 100%;
 }
