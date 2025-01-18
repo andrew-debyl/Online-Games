@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const GamePieces = ({ setScore, onGameOver }) => {
+const GamePieces = ({ setScore, setGameOver, setCollisionType }) => {
   const canvasRef = useRef();
   const snakeRef = useRef([
     { x: 100, y: 50 },
@@ -52,10 +52,11 @@ const GamePieces = ({ setScore, onGameOver }) => {
 
     const moveSnake = () => {
       if (directionRef.current) {
+        const canvas = canvasRef.current;
         const newSnake = [...snakeRef.current];
         const snakeHead = { x: newSnake[0].x, y: newSnake[0].y };
 
-        handleWallCollision(snakeHead);
+        if (handleWallCollision(snakeHead)) return;
 
         for (let i = newSnake.length - 1; i > 0; i--) {
           newSnake[i].x = newSnake[i - 1].x;
@@ -77,8 +78,9 @@ const GamePieces = ({ setScore, onGameOver }) => {
         }
 
         newSnake[0] = snakeHead;
-        handleAppleCollision(newSnake);
+
         handleBodyCollision(newSnake);
+        handleAppleCollision(newSnake);
 
         snakeRef.current = newSnake;
       }
@@ -89,21 +91,24 @@ const GamePieces = ({ setScore, onGameOver }) => {
 
       for (let i = 1; i < newSnake.length; i++) {
         if (snakeHead.x === newSnake[i].x && snakeHead.y === newSnake[i].y)
-          onGameOver("self");
+          setGameOver(true);
+        setCollisionType("self")
       }
     };
 
     const handleWallCollision = (snakeHead) => {
+      const canvas = canvasRef.current;
       if (
         snakeHead.x + SNAKE_SPEED > canvas.width ||
-        snakeHead.x + SNAKE_SPEED < 0
-      )
-        onGameOver("wall");
-      if (
+        snakeHead.x + SNAKE_SPEED < 0 ||
         snakeHead.y + SNAKE_SPEED > canvas.height ||
         snakeHead.y + SNAKE_SPEED < 0
-      )
-        onGameOver("wall");
+      ) {
+        setGameOver(true);
+        setCollisionType("wall")
+        return true;
+      }
+      return false;
     };
 
     const handleAppleCollision = (newSnake) => {
@@ -175,7 +180,7 @@ const GamePieces = ({ setScore, onGameOver }) => {
   }, []);
 
   return (
-    <canvas className="gameCanvas" ref={canvasRef} width={650} height={420} />
+    <canvas className="gameCanvas" ref={canvasRef} width={640} height={420} />
   );
 };
 

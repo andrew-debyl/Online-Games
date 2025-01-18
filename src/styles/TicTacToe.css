@@ -14,13 +14,14 @@
   align-items: center;
 }
 
-.tictactoe__game-wrapper{
+.tictactoe__game-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
 }
 
-.tictactoe__heading-wrapper{
+.tictactoe__heading-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -100,18 +101,49 @@
 }
 
 .board__restart {
-    padding: 10px 20px;
-    background-color: #111;
-    border: 2px solid #00ffff;
-    color: #00ffff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 0 10px #00ffff;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 10px 20px;
+  background-color: #111;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.board__restart:hover {
+  background-color: #333;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #00ffff, 0 0 15px #00ffff;
+}
+
+@media (max-width: 539px) {
+  .tictactoe__heading-wrapper {
+    width: 360px;
   }
   
-  .board__restart:hover {
-    background-color: #333;
-    transform: scale(1.03);
-    box-shadow: 0 0 10px #00ffff, 0 0 15px #00ffff;
+  .board__wrapper {
+    width: 300px;
+    height: 300px;
   }
+
+  .board__square {
+    width: 100px;
+    height: 100px;
+  }
+
+  .board__restart {
+    padding: 6px 14px;
+    font-size: 22px;
+  }
+
+  .board__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 539px) { 
+  .tictactoe__heading-wrapper {
+    width: 300px;
+  }
+}

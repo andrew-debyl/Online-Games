@@ -10,11 +10,6 @@ function Snake() {
   const [collision, setCollisionType] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleGameover = (type) => {
-    setGameOver(true);
-    setCollisionType(type);
-  };
-
   useEffect(() => {
     if (score > highScore) {
       setHighScore(score);
@@ -66,7 +61,8 @@ function Snake() {
                 <>
                   <GamePieces
                     setScore={setScore}
-                    onGameOver={(type) => handleGameover(type)}
+                    setGameOver = {setGameOver}
+                    setCollisionType = {setCollisionType}
                   />
                   <div className="snake__score-wrapper">
                     <p>Score: {score}</p>
