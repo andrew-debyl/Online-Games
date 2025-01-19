@@ -52,11 +52,16 @@ function Header({ pageName }) {
                 Wordle
               </Link>
             </li>
-            <li className={`header-link-${pageName}`}>
+            {/*<li className={`header-link-${pageName}`}>
               <Link to="/hangman" className={`link__hover-effect-${pageName}`}>
                 Hangman
               </Link>
             </li>
+            <li className={`header-link-${pageName}`}>
+              <Link to="/2048" className={`link__hover-effect-${pageName}`}>
+                2048
+              </Link>
+            </li> */}
           </ul>
         </div>
       </div>
