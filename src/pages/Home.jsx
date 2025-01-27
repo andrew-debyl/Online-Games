@@ -33,11 +33,11 @@ function Home() {
               <img src={wordle} alt="" className="home__game-img"></img>
             </div>
           </Link>
-          {/* <Link to="/hangman">
+           <Link to="/hangman">
             <div className="home__game">
               <img src={tictactoe} alt="" className="home__game-img"></img>
             </div>
-          </Link>*/}
+          </Link>
         </div>
       </div>
     </div>

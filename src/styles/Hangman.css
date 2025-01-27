@@ -1,0 +1,297 @@
+.hangman-container {
+  background-color: #cfb095;
+}
+
+.hangman {
+  display: flex;
+  flex-direction: column;
+  height: 88vh;
+  max-width: 800px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 32px;
+  padding-top: 30px;
+}
+
+.hangman-status {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 200px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hangman-status-btn {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: all 300ms ease;
+}
+
+.hangman-status-btn:hover {
+  background-color: lightgray;
+}
+
+.hangman-drawing {
+  position: relative;
+}
+
+.hangman-drawing-down {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 10px;
+  background: black;
+}
+
+.hangman-drawing-top {
+  height: 10px;
+  width: 140px;
+  background: black;
+  margin-left: 130px;
+}
+
+.hangman-drawing-middle {
+  height: 300px;
+  width: 10px;
+  background: black;
+  margin-left: 130px;
+}
+
+.hangman-drawing-bottom {
+  height: 10px;
+  width: 180px;
+  background: black;
+  margin-left: 40px;
+}
+
+.hangman-head {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: 10px solid black;
+  position: absolute;
+  top: 30px;
+  right: -30px;
+}
+
+.hangman-body {
+  width: 10px;
+  height: 100px;
+  background: black;
+  position: absolute;
+  top: 100px;
+  right: 0px;
+}
+
+.hangman-right-arm {
+  width: 100px;
+  height: 10px;
+  background: black;
+  position: absolute;
+  top: 130px;
+  right: -100px;
+  rotate: -30deg;
+  transform-origin: left bottom;
+}
+
+.hangman-left-arm {
+  width: 100px;
+  height: 10px;
+  background: black;
+  position: absolute;
+  top: 130px;
+  right: 10px;
+  rotate: 30deg;
+  transform-origin: right bottom;
+}
+
+.hangman-right-leg {
+  width: 100px;
+  height: 10px;
+  background: black;
+  position: absolute;
+  top: 190px;
+  right: -90px;
+  rotate: 60deg;
+  transform-origin: left bottom;
+}
+
+.hangman-left-leg {
+  width: 100px;
+  height: 10px;
+  background: black;
+  position: absolute;
+  top: 190px;
+  right: 0;
+  rotate: -60deg;
+  transform-origin: right bottom;
+}
+
+.hangman-word {
+  display: flex;
+  gap: 4px;
+  font-size: 70px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.hangman-word-letter {
+  border-bottom: 4px solid black;
+}
+
+.hangman-keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 8px;
+  padding: 0 20px;
+}
+
+.hangman-keyboard-key {
+  width: 100%;
+  border: 3px solid black;
+  background: none;
+  aspect-ratio: 1 / 1;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.hangman-keyboard-key-active {
+  background-color: #660002;
+  color: white;
+}
+
+.hangman-keyboard-key-inactive {
+  opacity: 0.3;
+}
+
+.hangman-keyboard-key:hover:not(:disabled) {
+  background-color: #ddc7c8;
+}
+
+
+@media(max-width: 780px) {
+  .hangman-drawing-down {
+    height: 20px;
+    width: 8px;
+  }
+  
+  .hangman-drawing-top {
+    height: 8px;
+    width: 100px;
+    margin-left: 100px;
+  }
+  
+  .hangman-drawing-middle {
+    height: 200px;
+    width: 8px;
+    background: black;
+    margin-left: 100px;
+  }
+  
+  .hangman-drawing-bottom {
+    height: 8px;
+    width: 120px;
+    background: black;
+    margin-left: 40px;
+  }
+  
+  .hangman-head {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: 8px solid black;
+    position: absolute;
+    top: 20px;
+    right: -18px;
+  }
+  
+  .hangman-body {
+    width: 8px;
+    height: 60px;
+    background: black;
+    position: absolute;
+    top: 65px;
+    right: 0px;
+  }
+  
+  .hangman-right-arm {
+    width: 60px;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 80px;
+    right: -60px;
+    rotate: -30deg;
+    transform-origin: left bottom;
+  }
+  
+  .hangman-left-arm {
+    width: 60px;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 80px;
+    right: 8px;
+    rotate: 30deg;
+    transform-origin: right bottom;
+  }
+  
+  .hangman-right-leg {
+    width: 60px;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 115px;
+    right: -52px;
+    rotate: 60deg;
+    transform-origin: left bottom;
+  }
+  
+  .hangman-left-leg {
+    width: 60px;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 115px;
+    right: 0px;
+    rotate: -60deg;
+    transform-origin: right bottom;
+  }
+  
+  .hangman-word {
+    display: flex;
+    gap: 4px;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .hangman-keyboard {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  
+  .hangman-keyboard-key {
+    font-size: 2rem;
+  }
+}
