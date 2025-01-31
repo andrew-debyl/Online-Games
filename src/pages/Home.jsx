@@ -6,6 +6,7 @@ import tictactoe from "../assets/tictactoe.png";
 import matching from "../assets/matching.png";
 import snake from "../assets/snake.png";
 import wordle from "../assets/wordle.png";
+import hangman from "../assets/hangman.png";
 
 function Home() {
   return (
@@ -35,7 +36,7 @@ function Home() {
           </Link>
            <Link to="/hangman">
             <div className="home__game">
-              <img src={tictactoe} alt="" className="home__game-img"></img>
+              <img src={hangman} alt="" className="home__game-img"></img>
             </div>
           </Link>
         </div>
